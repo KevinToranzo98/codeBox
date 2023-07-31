@@ -15,7 +15,6 @@ function Barcode({ code, codeSize, padding }: BarCodeProps) {
       if (!code) return;
 
       try {
-        console.log(code);
         const isValidInput = /^[A-Za-z0-9]+$/.test(code);
         if (!isValidInput) {
           alert(

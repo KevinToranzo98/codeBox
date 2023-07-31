@@ -53,9 +53,11 @@ function App() {
         <textarea
           value={input}
           className='input-container__textarea'
-          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-            setInput(e.target.value)
-          }
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+            const cleanedNewlines = e.target.value.replace(/\n/g, ' ');
+            const cleanedInput = cleanedNewlines.replace(/\s{2,}/g, ' ');
+            setInput(cleanedInput);
+          }}
         />
 
         <label htmlFor='rowsPerPage'>Filas por página:</label>

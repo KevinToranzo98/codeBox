@@ -22,12 +22,7 @@ function CodesPDF({
     <Document>
       {Array.from(Array(totalPages)).map((_: number, pageIndex: number) => (
         <Page key={pageIndex}>
-          <View
-            style={{
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
+          <View>
             {renderCodesForPage(
               codes,
               pageIndex,
