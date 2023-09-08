@@ -1,4 +1,4 @@
-import { View, Image } from '@react-pdf/renderer';
+import { Image, View } from '@react-pdf/renderer';
 import JsBarcode from 'jsbarcode';
 import { useEffect, useState } from 'react';
 
@@ -15,21 +15,13 @@ function Barcode({ code, codeSize, padding }: BarCodeProps) {
       if (!code) return;
 
       try {
-        const isValidInput = /^[A-Za-z0-9]+$/.test(code);
-        if (!isValidInput) {
-          alert(
-            `Entrada inválida para el código de barras: "${code}". Sólo se permiten valores alfanuméricos`
-          );
-          return;
-        }
-
         const canvas = document.createElement('canvas');
         JsBarcode(canvas, code);
 
         const barcodeDataURL = canvas.toDataURL();
         setBarcode(barcodeDataURL);
       } catch (error) {
-        alert(`Error al generar el código de barras: ${error}`);
+        alert(`Error al generar el cÃ³digo de barras: ${error}`);
       }
     };
 
